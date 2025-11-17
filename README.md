@@ -402,42 +402,6 @@ Cloak/
 
 ---
 
-## 🗺️ Roadmap
-
-### ✅ Phase 1: Foundation (Completed)
-- [x] Privacy Bridge pallet implementation
-- [x] zkSNARK integration (Groth16/BN254)
-- [x] Merkle tree anonymity sets
-- [x] XCM v5 cross-chain integration
-- [x] Comprehensive test suite (45 tests)
-- [x] WASM runtime compilation
-
-### 🚧 Phase 2: Testnet (In Progress)
-- [ ] Deploy to Paseo testnet
-- [ ] Community testing and feedback
-- [ ] Stress testing and optimization
-- [ ] Bug fixes and improvements
-
-### 📋 Phase 3: Integration (Planned)
-- [ ] Integrate with major parachains (Acala, Moonbeam, Astar)
-- [ ] User-friendly dApp interface
-- [ ] Additional asset type support
-- [ ] Enhanced XCM features
-
-### 🔒 Phase 4: Security (Planned)
-- [ ] Third-party security audit
-- [ ] Formal verification
-- [ ] Bug bounty program
-- [ ] Security documentation
-
-### 🚀 Phase 5: Mainnet (Future)
-- [ ] Mainnet parachain auction
-- [ ] Production launch
-- [ ] Ecosystem partnerships
-- [ ] Ongoing maintenance
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Here's how:
