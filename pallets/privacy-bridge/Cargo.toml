@@ -1,0 +1,74 @@
+[package]
+name = "pallet-privacy-bridge"
+description = "Privacy Bridge Pallet - Cross-chain privacy layer for Polkadot ecosystem"
+version = "0.1.0"
+license = "Unlicense"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { features = ["derive"], workspace = true }
+scale-info = { features = ["derive"], workspace = true }
+
+frame = { workspace = true, default-features = false, features = [
+	"experimental",
+	"runtime",
+] }
+
+# Cryptography dependencies for commitment generation
+sp-core = { workspace = true, default-features = false }
+sp-io = { workspace = true, default-features = false }
+sp-runtime = { workspace = true, default-features = false }
+
+# For random number generation
+rand_chacha = { version = "0.3", default-features = false }
+
+# zkSNARK dependencies (Arkworks)
+ark-ff = { version = "0.4", default-features = false }
+ark-ec = { version = "0.4", default-features = false }
+ark-std = { version = "0.4", default-features = false }
+ark-serialize = { version = "0.4", default-features = false }
+ark-groth16 = { version = "0.4", default-features = false }
+ark-bn254 = { version = "0.4", default-features = false, features = ["curve", "scalar_field"] }
+ark-relations = { version = "0.4", default-features = false }
+ark-r1cs-std = { version = "0.4", default-features = false }
+ark-crypto-primitives = { version = "0.4", default-features = false, features = ["crh"] }
+
+# Week 4: XCM dependencies for cross-chain integration
+# Using git source to match workspace polkadot-sdk version
+staging-xcm = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+staging-xcm-executor = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+staging-xcm-builder = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+pallet-xcm = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+
+[features]
+default = ["std"]
+runtime-benchmarks = ["frame/runtime-benchmarks"]
+std = [
+	"codec/std",
+	"frame/std",
+	"scale-info/std",
+	"sp-core/std",
+	"sp-io/std",
+	"sp-runtime/std",
+	"ark-ff/std",
+	"ark-ec/std",
+	"ark-std/std",
+	"ark-serialize/std",
+	"ark-groth16/std",
+	"ark-bn254/std",
+	"ark-relations/std",
+	"ark-r1cs-std/std",
+	"ark-crypto-primitives/std",
+	"staging-xcm/std",
+	"staging-xcm-executor/std",
+	"staging-xcm-builder/std",
+	"pallet-xcm/std",
+]
+try-runtime = ["frame/try-runtime"]

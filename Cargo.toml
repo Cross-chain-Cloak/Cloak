@@ -1,0 +1,42 @@
+[workspace.package]
+authors = ["Privacy Bridge Team"]
+edition = "2021"
+homepage = "https://github.com/privacy-bridge"
+license = "Unlicense"
+repository = "https://github.com/privacy-bridge"
+
+[workspace]
+resolver = "2"
+
+members = [
+	"runtime",
+	"pallets/privacy-bridge",
+	"pallets/template",
+]
+
+[workspace.dependencies]
+polkadot-sdk = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+
+# Parity dependencies
+codec = { version = "3.6.12", package = "parity-scale-codec", default-features = false }
+scale-info = { version = "2.11.1", default-features = false }
+
+# Polkadot SDK dependencies - use git branch without version pinning
+frame = { package = "polkadot-sdk-frame", git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+sp-io = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412", default-features = false }
+
+# Build dependencies
+substrate-wasm-builder = { git = "https://github.com/paritytech/polkadot-sdk.git", branch = "stable2412" }
+docify = { version = "0.2.8" }
+
+# Other common dependencies
+log = { version = "0.4.20", default-features = false }
+hex-literal = { version = "0.4.1" }
+smallvec = { version = "1.11.2" }
+serde_json = { version = "1.0.132", default-features = false }
+
+# Privacy Bridge pallets
+pallet-privacy-bridge = { path = "pallets/privacy-bridge", default-features = false }
+pallet-parachain-template = { path = "pallets/template", default-features = false }
